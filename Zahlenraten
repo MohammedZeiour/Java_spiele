@@ -1,19 +1,37 @@
-plugins {
-    id 'java'
-}
+package org.example;
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+import java.util.Random;
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
-repositories {
-    mavenCentral()
-}
+public class Main {
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-}
+    static void rateZahl(int wertebereich) {
+        int randomNum = ThreadLocalRandom.current().nextInt(1, 100);   //Zufallszahl erzeugen
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Willkommen beim Zahlenratespiel. \nBitte wähle eine Zahl zwichen 0 und "+wertebereich+" aus.");
+        int eingabe = scanner.nextInt();
+        int versuche = 1;                                                          //Versuche zählen
 
-test {
-    useJUnitPlatform()
+        while (eingabe != randomNum) {                       //Wird betreten, wenn der erster Versuch falsch ist und verlassen sobald Versuch richtig ist.
+            if (eingabe < 0 || eingabe > wertebereich){
+                System.out.println("Deine Eingabe liegt nicht im Wertebereich. Bitte Versuch es erneut.");
+                eingabe = scanner.nextInt();
+            }  else if (eingabe < randomNum){
+                System.out.println("Leider falsch, Bitte wähle eine größere Zahl aus.");
+                eingabe = scanner.nextInt();
+                versuche++;
+            } else if (eingabe > randomNum){
+                System.out.println("Leider falsch, Bitte wähle eine kleinere Zahl aus.");
+                eingabe = scanner.nextInt();
+                versuche++;                              
+            }
+        }
+        System.out.println("Herzlichen Glückwunsch, du hast die richtige Zahl erraten!!!");     //Resultat für den Nutzer
+        System.out.println("Benötigte Versuche: "+ versuche );
+        }
+
+        public static void main(String[] args){
+        rateZahl(100);
+    }
 }
