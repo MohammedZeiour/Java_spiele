@@ -1,6 +1,4 @@
 # Java_Spiele
 
-Im Folgenden befinden sich 3 einfache Java-Spiele.
-1.Level: Errate die gesuchte Zahl in maximal 5 Versuchen!
-2.Level:
-3.Level:
+Im Folgenden befinden sich 3 einfache Java-Spiele von Level 1-3.
+
