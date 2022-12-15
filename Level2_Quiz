@@ -12,72 +12,72 @@ public class Main {
 
 
     }
-        public static void spieleQuiz () {
+    public static void spieleQuiz () {
 
-            int gesamtpunkte = 0;
-            String[] frage1 = {
-                    "Was ist die Hauptstadt von Peru?",
-                    "Kairo",
-                    "Lima",
-                    "Kaptadt",
-                    "Jerewan",
-                    "",
-                    "Lima"
-            };
-            String[] frage2 = {
-                    "Wieviel ist 25 * 17?",
-                    "425",
-                    "415",
-                    "420",
-                    "435",
-                    "",
-                    "425"
-            };
-            String[] frage3 = {
-                    "wie viele Einwohner hat China ungefähr?",
-                    "1,5 Million",
-                    "1,2 Milliarde",
-                    "1,55 Milliarde",
-                    "1,4 Milliarde",
-                    "",
-                    "1,4 Milliarde"
-            };
-            String[][] fragen = {                                         //Fragen in ein zweidimensionelles Array speichern
-                    frage1, frage2, frage3
-            };
+        int gesamtpunkte = 0;
+        String[] frage1 = {
+                "Was ist die Hauptstadt von Peru?",
+                "Kairo",
+                "Lima",
+                "Kaptadt",
+                "Jerewan",
+                "",
+                "Lima"
+        };
+        String[] frage2 = {
+                "Wieviel ist 25 * 17?",
+                "425",
+                "415",
+                "420",
+                "435",
+                "",
+                "425"
+        };
+        String[] frage3 = {
+                "wie viele Einwohner hat China ungefähr?",
+                "1,5 Million",
+                "1,2 Milliarde",
+                "1,55 Milliarde",
+                "1,4 Milliarde",
+                "",
+                "1,4 Milliarde"
+        };
+        String[][] fragen = {                                         //Fragen in ein zweidimensionelles Array speichern
+                frage1, frage2, frage3
+        };
 
-            for (int i = 0; i < fragen.length; i++) {                     //Fragen und Antwortmöglichkeiten anzeigen
-                System.out.println(fragen[i][0]);
-                System.out.println(fragen[i][1]);
-                System.out.println(fragen[i][2]);
-                System.out.println(fragen[i][3]);
-                System.out.println(fragen[i][4]);
-                System.out.println(fragen[i][5]);
-                System.out.println("Hier die Antwort eingeben: ");                      //Eingabe ermöglichen
-                BufferedReader eingabe = new BufferedReader(new InputStreamReader(System.in));
+        for (int i = 0; i < fragen.length; i++) {                     //Fragen und Antwortmöglichkeiten anzeigen
+            System.out.println(fragen[i][0]);
+            System.out.println(fragen[i][1]);
+            System.out.println(fragen[i][2]);
+            System.out.println(fragen[i][3]);
+            System.out.println(fragen[i][4]);
+            System.out.println(fragen[i][5]);
+            System.out.println("Hier die Antwort eingeben: ");                      //Eingabe ermöglichen
+            BufferedReader eingabe = new BufferedReader(new InputStreamReader(System.in));
 
-                try {                                                                
-                    String antwort = eingabe.readLine();
-                    System.out.println("Sie haben als Antwort: " + antwort + " eingegeben.");
+            try {
+                String antwort = eingabe.readLine();
+                System.out.println("Sie haben als Antwort: " + antwort + " eingegeben.");
 
-                  
-                    if (antwort.equals(fragen[i][6])) {                                   //Antworten überprüfen
-                        System.out.println("Richtige Antwort!\n");
-                        gesamtpunkte++;
-                    } else {
-                        System.out.println("Leider die falsche Antwort\n");
-                    }
 
-                } catch (IOException e) {
-                    System.out.println("Falsche Eingabe!");
+                if (antwort.equals(fragen[i][6])) {                                   //Antworten überprüfen
+                    System.out.println("Richtige Antwort!\n");
+                    gesamtpunkte++;
+                } else {
+                    System.out.println("Leider die falsche Antwort\n");
                 }
-            }
-            System.out.println("Sie haben " + gesamtpunkte + " von 3 Punkten erreicht.");       //Resultat der Eingabe
-            if (gesamtpunkte == 3) {
-                System.out.println("Das heißt: VOLLE PUNKTZAHL!");
-            } else {
-                System.out.println("Vielleicht ein anderes mal.");
+
+            } catch (IOException e) {
+                System.out.println("Falsche Eingabe!");
             }
         }
+        System.out.println("Sie haben " + gesamtpunkte + " von 3 Punkten erreicht.");       //Resultat der Eingabe
+        if (gesamtpunkte == 3) {
+            System.out.println("Das heißt: VOLLE PUNKTZAHL!");
+            System.out.println("Level 2 geschafft!");
+        } else {
+            System.out.println("Vielleicht ein anderes mal.");
+        }
     }
-
+}
