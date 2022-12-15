@@ -9,7 +9,8 @@ public class Main {
     static void rateZahl(int wertebereich) {
         int randomNum = ThreadLocalRandom.current().nextInt(1, 100);   //Zufallszahl erzeugen
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Willkommen beim Zahlenratespiel. \nBitte wähle eine Zahl zwichen 0 und "+wertebereich+" aus.");
+        System.out.println("Willkommen beim Zahlenratespiel. Schaffst du es mit maximal 5 Versuchen die gesuchte Zahl zu erraten?" +
+                " \nBitte wähle eine Zahl zwichen 0 und "+wertebereich+" aus.");
         int eingabe = scanner.nextInt();
         int versuche = 1;                                                          //Versuche zählen
 
@@ -24,14 +25,17 @@ public class Main {
             } else if (eingabe > randomNum){
                 System.out.println("Leider falsch, Bitte wähle eine kleinere Zahl aus.");
                 eingabe = scanner.nextInt();
-                versuche++;                              
+                versuche++;
             }
         }
-        System.out.println("Herzlichen Glückwunsch, du hast die richtige Zahl erraten!!!");     //Resultat für den Nutzer
-        System.out.println("Benötigte Versuche: "+ versuche );
+        if(versuche <= 5){
+            System.out.println("Herzlichen Glückwunsch, du hast die richtige Zahl erraten!!!");
+            System.out.println("Benötigte Versuche: "+ versuche );
         }
+        System.out.println("Du hast die richtige Zahl erraten, allerdings über 5 Versuche benötigt.\n"+ "Deine Versuche: "+ versuche );
+    }
 
-        public static void main(String[] args){
+    public static void main(String[] args){
         rateZahl(100);
     }
 }
