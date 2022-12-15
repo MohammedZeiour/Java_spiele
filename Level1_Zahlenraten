@@ -6,6 +6,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
+    public static void main(String[] args){
+        rateZahl(100);
+
+    }
+
     static void rateZahl(int wertebereich) {
         int randomNum = ThreadLocalRandom.current().nextInt(1, 100);   //Zufallszahl erzeugen
         Scanner scanner = new Scanner(System.in);
@@ -35,7 +40,4 @@ public class Main {
         System.out.println("Du hast die richtige Zahl erraten, allerdings über 5 Versuche benötigt.\n"+ "Deine Versuche: "+ versuche );
     }
 
-    public static void main(String[] args){
-        rateZahl(100);
-    }
 }
