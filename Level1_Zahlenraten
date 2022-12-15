@@ -36,8 +36,9 @@ public class Main {
         if(versuche <= 5){
             System.out.println("Herzlichen Glückwunsch, du hast die richtige Zahl erraten!!!");
             System.out.println("Benötigte Versuche: "+ versuche );
-        }
+            System.out.println("Level 1 geschafft!");
+        } else {
         System.out.println("Du hast die richtige Zahl erraten, allerdings über 5 Versuche benötigt.\n"+ "Deine Versuche: "+ versuche );
-    }
+    }}
 
 }
