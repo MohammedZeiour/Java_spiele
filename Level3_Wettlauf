@@ -1,0 +1,127 @@
+package org.example;
+
+public class Main {
+    public static void main(String[] args) {
+        Spielfeld spielfeld = new Spielfeld();
+        System.out.println("Willkomen in Level 3!");
+        System.out.println("Erreiche das Ziel('=') mit maximal 10 Schritten ohne die Fallen ('x') zu berühren.");
+        spielfeld.erstelleFeld();
+        spielfeld.bewegeSpieler();
+    }
+}
+
+
+
+package org.example;
+
+import java.util.Scanner;
+
+public class Spielfeld {
+    Scanner scanner = new Scanner(System.in);
+    int zeile;
+    int spalte;
+    String[][] feld = new String[6][8];
+    Figure benutzer = new Figure(0, 0);
+    Figure ziel = new Figure(4,5);
+
+    Figure gefahr = new Figure(1,3);
+
+    public void erstelleFeld() {
+        for (zeile = 0; zeile < feld.length; zeile++) {
+            for (spalte = 0; spalte < feld[zeile].length; spalte++) {
+                if (benutzer.getZeile() == zeile && benutzer.getSpalte() == spalte) {
+                    System.out.print("W");
+                }else if (ziel.getZeile() == zeile && ziel.getSpalte() == spalte) {
+                    System.out.print("=");
+                }else if(gefahr.getZeile() == zeile && gefahr.getSpalte() == spalte){
+                    System.out.print("x");
+                }else {
+                    System.out.print(feld[zeile][spalte] != null ? feld[zeile][spalte] : ".");
+                }
+            }
+                    System.out.println();
+         }
+    }
+    public void bewegeSpieler() {
+        int zaehler = 0;
+        int versuche = 11;
+        while (true){
+            zaehler++;
+            if (zaehler == versuche){
+                System.out.println("Leider verloren.\nDu hast zu viele Versuche gebraucht!");
+                break;
+            }
+        System.out.println("Bitte Richtung eingeben (rechts, links, hoch, runter): ");
+            int counter = versuche - zaehler;
+        System.out.println("Du hast noch "+ counter+ " Versuche.");
+        String eingabe = scanner.next();
+        if (eingabe.equals("rechts")) {
+            benutzer.bewegeRechts();
+        } else if (eingabe.equals("links")) {
+            benutzer.bewegeLinks();
+
+        } else if (eingabe.equals("runter")) {
+            benutzer.bewegeRunter();
+
+        } else if (eingabe.equals("hoch")) {
+            benutzer.bewegeHoch();
+        }
+        if(falleErwischt()){
+            System.out.print("Du hast Verloren! Vielleicht ein anderes mal.");
+            break;
+        }
+        if(benutzerHatZielErreicht()){
+            System.out.println();
+            System.out.print("Herzlichen Glückwunsch. \nDu hast das Ziel erreicht!");
+            break;
+        } else{
+            erstelleFeld();
+            System.out.println();
+        }
+
+        }
+    }
+    public boolean benutzerHatZielErreicht(){
+        return benutzer.getSpalte() == ziel.getSpalte() && ziel.getZeile() == benutzer.getZeile();
+    }
+    public boolean falleErwischt(){
+        return benutzer.getSpalte() == gefahr.getSpalte() && gefahr.getZeile() == benutzer.getZeile();
+    }
+
+    class Figure {
+        private int spalte;
+        private int zeile;
+
+        public Figure(int zeile, int spalte) {
+            this.zeile = zeile;
+            this.spalte = spalte;
+        }
+        public void bewegeRechts() {
+            if(spalte < 4){
+            spalte++;
+            }
+        }
+        public void bewegeLinks() {
+            if (spalte > 0){
+            spalte--;
+            }
+        }
+        public void bewegeRunter() {
+            if(zeile < 4){
+            zeile++;
+            }
+        }
+        public void bewegeHoch() {
+            if(zeile > 0){
+            zeile--;
+            }
+        }
+        public int getZeile() {
+            return zeile;
+        }
+        public int getSpalte() {
+            return spalte;
+        }
+
+    }
+}
