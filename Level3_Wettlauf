@@ -28,7 +28,7 @@ public class Main {
         Figure gefahr6 = new Figure(2, 2);
         Figure gefahr7 = new Figure(3, 3);
 
-        public void erstelleFeld() {                                            //Gibt das Array aus mit den verschiedenen Symbolen (Benutzer, Fallen, Ziel)
+        public void erstelleFeld() {                            //Gibt das Array aus mit den verschiedenen Symbolen (Benutzer, Fallen, Ziel)
             for (zeile = 0; zeile < feld.length; zeile++) {
                 for (spalte = 0; spalte < feld[zeile].length; spalte++) {
                     if (benutzer.getZeile() == zeile && benutzer.getSpalte() == spalte) {
@@ -81,8 +81,8 @@ public class Main {
                 } else if (eingabe.equals("hoch") || eingabe.equals("h")) {
                     benutzer.bewegeHoch();
                 }
-                if (falleErwischt1() || falleErwischt2() || falleErwischt3() ||
-                        falleErwischt4() || falleErwischt5() || falleErwischt6() || falleErwischt7()) { //(2 Ausnahme) Falls irgendeine Falle berührt wird, ist Spiel beendet
+                if (falleErwischt1() || falleErwischt2() || falleErwischt3() ||                 //(2 Ausnahme) Falls irgendeine Falle berührt wird, ist Spiel beendet
+                        falleErwischt4() || falleErwischt5() || falleErwischt6() || falleErwischt7()) { 
                     System.out.print("Du bist in die Falle getappt! Vielleicht ein anderes mal.");
                     break;
                 }
