@@ -62,7 +62,7 @@ public class Main {
             int versuche = 15;
             while (true) {                                            //Nutzereingabe soll grundsätzlich immer ermöglicht werden (3 Ausnahmen)
                 zaehler++;
-                if (zaehler == versuche) {                                  //(1 Ausnahme): Wenn Versuche aufgebraucht sind, kann nicht mehr weitergespielt werden
+                if (zaehler == versuche) {                         //(1 Ausnahme): Wenn Versuche aufgebraucht sind, kann nicht mehr weitergespielt werden
                     System.out.println("Leider verloren.\nDu hast zu viele Versuche gebraucht!");
                     break;
                 }
