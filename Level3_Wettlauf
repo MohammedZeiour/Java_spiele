@@ -70,7 +70,7 @@ public class Main {
                 int uebrigeVersuche = versuche - zaehler;                       //ergibt die noch übrigen Versuche
                 System.out.println("Du hast noch " + uebrigeVersuche + " Versuche.");
                 String eingabe = scanner.next();                           //speichert die Nutzereingabe 
-                if (eingabe.equals("rechts") || eingabe.equals("r")) {      //Nutzereingaben werden geprüft und durch die jeweiligen Methoden umgesetzt
+                if (eingabe.equals("rechts") || eingabe.equals("r")) {  //Nutzereingaben werden geprüft und durch die jeweiligen Methoden umgesetzt
                     benutzer.bewegeRechts();
                 } else if (eingabe.equals("links") || eingabe.equals("l")) {
                     benutzer.bewegeLinks();
@@ -81,12 +81,12 @@ public class Main {
                 } else if (eingabe.equals("hoch") || eingabe.equals("h")) {
                     benutzer.bewegeHoch();
                 }
-                if (falleErwischt1() || falleErwischt2() || falleErwischt3() ||                 //(2 Ausnahme) Falls irgendeine Falle berührt wird, ist Spiel beendet
+                if (falleErwischt1() || falleErwischt2() || falleErwischt3() ||    //(2 Ausnahme) Falls irgendeine Falle berührt wird, ist Spiel beendet
                         falleErwischt4() || falleErwischt5() || falleErwischt6() || falleErwischt7()) { 
                     System.out.print("Du bist in die Falle getappt! Vielleicht ein anderes mal.");
                     break;
                 }
-                if (benutzerHatZielErreicht()) {                               //(3 Ausnahme) Sobald Ziel erreicht wurde, kann nicht weitergespielt werden
+                if (benutzerHatZielErreicht()) {               //(3 Ausnahme) Sobald Ziel erreicht wurde, kann nicht weitergespielt werden
                     System.out.println();
                     System.out.print("Herzlichen Glückwunsch. \nDu hast das Ziel erreicht!");
                     break;
