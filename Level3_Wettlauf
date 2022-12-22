@@ -60,7 +60,7 @@ public class Main {
         public void bewegeSpieler() {                                       //ermöglicht die Interaktion mit dem Nutzer
             int zaehler = 0;
             int versuche = 15;
-            while (true) {                                                  //Nutzereingabe soll grundsätzlich immer ermöglicht werden (3 Ausnahmen)
+            while (true) {                                            //Nutzereingabe soll grundsätzlich immer ermöglicht werden (3 Ausnahmen)
                 zaehler++;
                 if (zaehler == versuche) {                                  //(1 Ausnahme): Wenn Versuche aufgebraucht sind, kann nicht mehr weitergespielt werden
                     System.out.println("Leider verloren.\nDu hast zu viele Versuche gebraucht!");
